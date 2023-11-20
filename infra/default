@@ -1,0 +1,83 @@
+server {
+    server_name 84.252.142.45 madtokker.hopto.org;
+
+    location /api/ {
+        proxy_pass http://127.0.0.1:8000;
+    }
+
+    location /admin/ {
+        proxy_pass http://127.0.0.1:8000;
+    }
+    
+    location / {
+        root   /var/www/Taski;
+        index  index.html index.htm;
+        try_files $uri /index.html;
+    }
+
+
+    listen 443 ssl;
+    ssl_certificate /etc/letsencrypt/live/madtokker.hopto.org/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/madtokker.hopto.org/privkey.pem;
+    include /etc/letsencrypt/options-ssl-nginx.conf;
+    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem;
+
+}
+
+server {
+    if ($host = madtokker.hopto.org) {
+        return 301 https://$host$request_uri;
+    }
+
+
+
+    listen 80;
+    server_name 84.252.142.45 madtokker.hopto.org;
+    return 404;
+
+
+}
+
+server {
+    server_name 84.252.142.45 madtokker1.hopto.org;
+
+    location /api/ {
+        proxy_pass http://127.0.0.1:8080;
+    }
+
+    location /admin/ {
+        proxy_pass http://127.0.0.1:8080;
+    }
+
+   location /media/ {
+        alias /var/www/infra_sprint1/media/;
+   }
+    
+    location / {
+        root   /var/www/infra_sprint1;
+        index  index.html index.htm;
+        try_files $uri /index.html;
+    }
+
+
+    listen 443 ssl;
+    ssl_certificate /etc/letsencrypt/live/madtokker1.hopto.org/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/madtokker1.hopto.org/privkey.pem;
+    include /etc/letsencrypt/options-ssl-nginx.conf;
+    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem;
+}
+
+
+server {
+    if ($host = madtokker1.hopto.org) {
+        return 301 https://$host$request_uri;
+    }
+
+
+
+    listen 80;
+    server_name 84.252.142.45 madtokker1.hopto.org;
+    return 404;
+
+
+}
