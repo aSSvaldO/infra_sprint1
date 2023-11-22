@@ -7,7 +7,11 @@ SECRET_KEY = os.getenv('SECRET_KEY', 'default_secret_key')
 
 DEBUG = False
 
-ALLOWED_HOSTS = ['84.252.142.45', '127.0.0.1', 'localhost', 'madtokker1.hopto.org']
+ALLOWED_HOSTS = ['84.252.142.45',
+                 '127.0.0.1',
+                 'localhost',
+                 'madtokker1.hopto.org'
+                 ]
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -104,7 +108,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.IsAuthenticated', 
+        'rest_framework.permissions.IsAuthenticated',
     ],
 
     'DEFAULT_AUTHENTICATION_CLASSES': [
