@@ -33,7 +33,7 @@ ln -s /home/yc-user/infra_sprint1/infra/gunicorn_kittygram.service /etc/systemd/
 Настройка веб-сервера. Установка и запуск Nginx
 - В виртуальной среде проекта на удаленном сервере установите Nginx и затем запустите его. После установки возможно потребуется перезагрузить операционную систему – выполните это. Затем запустите Nginx.
 sudo apt install nginx -y
-sudo systemctl start nginx
+sudo systemctl start  sudo nano /etc/nginx/sites-enabled/default
 - Включите файрвол и укажите порты, которые необходимо открыть (Команда sudo ufw allow 'Nginx Full' активирует разрешение принимать запросы на порты 80 и 443).
 sudo ufw allow 'Nginx Full'
 sudo ufw allow OpenSSH

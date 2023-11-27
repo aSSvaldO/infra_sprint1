@@ -1,5 +1,5 @@
 IP: 84.252.142.45;
 name_taski: https://madtokker.hopto.org;
-name_kittygram: https://madtokker1.hopto.org;;
-login: admin;
-password: admin;
+name_kittygram: https://madtokker1.hopto.org;
+login: vasy;
+password: vasy;
